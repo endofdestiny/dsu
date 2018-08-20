@@ -35,6 +35,6 @@ make
  - install
     - Install Python project locally
  - lint
-    - Lint using flake8
+    - Lint using flake8 and mypy
  - update
     - Update and export environment.yml
