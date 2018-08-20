@@ -22,9 +22,10 @@ clean:
 	find . -type f -name "*.py[co]" -delete
 	find . -type d -name "__pycache__" -delete
 
-## Lint using flake8
+## Lint using flake8 and mypy
 lint:
-	flake8 src
+	flake8 --max-line-length=120 src
+	mypy --strict src
 
 ## Test conda environment is correctly setup
 check:
@@ -33,7 +34,6 @@ check:
 ## Install Python project locally
 install: check
 	$(PYTHON_INTERPRETER) ./config/setup.py build && $(PYTHON_INTERPRETER) ./config/setup.py install --record ./logs/installation.log
-
 
 
 ## Create environment from environment.yml file
