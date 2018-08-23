@@ -21,6 +21,14 @@ endif
 clean:
 	find . -type f -name "*.py[co]" -delete
 	find . -type d -name "__pycache__" -delete
+	find . -type f -name "*~" -delete
+
+## Uninstall local Python package
+uninstall: clean
+	rm -rf build/
+	rm -rf dist/
+	rm -rf src/*.egg-info
+	rm -f logs/installation.log
 
 ## Lint using flake8 and mypy
 lint:
